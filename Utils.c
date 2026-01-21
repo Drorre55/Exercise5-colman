@@ -78,9 +78,19 @@ int Median(int* numbers, int size)
     }
     return possibleMedian;
 }
-int* CreateRange(int start, int end, int jump, int* sizeRage)
+int* CreateRange(int start, int end, int jump, int* sizeRange)
 {
-	return NULL;
+    *(sizeRange) = ((end - start) / jump) + 1;
+    int* range = malloc(*(sizeRange) * sizeof *range);
+    if (range == NULL) {
+        printf("error with malloc");
+        return NULL;
+    }
+
+    for (int i = 0; i < *(sizeRange); i++) {
+        *(range + i) = start + jump * i;
+    }
+	return range;
 }
 char* PairArrays(char a[], char b[])
 {
