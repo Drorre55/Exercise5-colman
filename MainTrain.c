@@ -2,6 +2,7 @@
 
 void Test1(char *str, int number, char* expected)
 {
+	printf("Test function ToString\n");
 	ToString(str, number);
 
 	if (strcmp(str, expected) != 0)
@@ -12,6 +13,7 @@ void Test1(char *str, int number, char* expected)
 
 void Test2(char *s1, char *s2, int s1Length, char *expected)
 {
+	printf("Test function Mystrcat\n");
 	s1[s1Length] = 0;
 	Mystrcat(s1, s2);
 
@@ -23,6 +25,7 @@ void Test2(char *s1, char *s2, int s1Length, char *expected)
 
 void Test3(char *arr, int sum)
 {
+	printf("Test function SumStr\n");
 	int tempSum = SumStr(arr);
 	if (tempSum != sum)
 	{
@@ -32,6 +35,7 @@ void Test3(char *arr, int sum)
 
 void Test4(int *arr, int size, int mid)
 {
+	printf("Test function Median\n");
 	int tMid = Median(arr, size);
 
 	if (mid != tMid)
@@ -42,6 +46,7 @@ void Test4(int *arr, int size, int mid)
 
 void Test5(int start, int end, int jump, int wantedSize)
 {
+	printf("Test function CreateRange\n");
 	int size;
 	int* tempResult = CreateRange(start, end, jump, &size);
 
@@ -68,6 +73,7 @@ void Test5(int start, int end, int jump, int wantedSize)
 
 void Test6(char *a, char *b, char *result)
 {
+	printf("Test function PairArrays\n");
 	char* tempString = PairArrays(a, b);
 
 	if (tempString == NULL)
@@ -85,10 +91,14 @@ int main(){
 
 	char s[MAX_SIZE] = { 0 };
 	Test1(s, 111, "111");
-	Test1(s, 59755, "59755");
-	Test1(s, 001, "1");
-	Test1(s, 100, "100");
-	Test1(s, 1234, "1234");
+	char s11[MAX_SIZE] = { 0 }; 
+	Test1(s11, 59755, "59755");
+	char s22[MAX_SIZE] = { 0 }; 
+	Test1(s22, 001, "1");
+	char s33[MAX_SIZE] = { 0 }; 
+	Test1(s33, 100, "100");
+	char s44[MAX_SIZE] = { 0 }; 
+	Test1(s44, 1234, "1234");
 	// 15 Points
 
 	char s1[] = "abc    ";
