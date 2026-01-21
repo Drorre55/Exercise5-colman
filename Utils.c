@@ -1,5 +1,6 @@
 #include "Utils.h"
 #include <math.h>
+#include <string.h>
 
 
 void ToString(char* str, int number)
@@ -22,6 +23,13 @@ void ToString(char* str, int number)
 }
 void Mystrcat(char* s, char* t)
 {
+    int sLen = strlen(s);
+    int tLen = strlen(t);
+
+    for (int i = 0; i < tLen; i++) {
+        *(s + sLen + i) = *(t + i);
+    }
+    *(s + sLen + tLen) = '\0';
 }
 int SumStr(char* str)
 {
