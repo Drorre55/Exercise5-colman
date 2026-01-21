@@ -55,21 +55,28 @@ int SumStr(char* str)
 }
 int Median(int* numbers, int size)
 {
-    int* sortedNumbers = malloc(size * sizeof(int));
+    int possibleMedian = INT_MAX;
     for (int i = 0; i < size; i++) {
-        int minNumber = INT_MAX;
-        int minNumberIdx = -1;
+        int currentNumber = *(numbers + i);
+        int amountNumbersSmallerOrEqual = 0;
+        int amountNumbersBiggerOrEqual = 0;
+        
         for (int j = 0; j < size; j++) {
-            int currentNumber = *(numbers + j);
-            if (currentNumber < minNumber) {
-                minNumber = currentNumber;
-                minNumberIdx = j;
+            int otherNumber = *(numbers + j);
+            if (currentNumber <= otherNumber) {
+                amountNumbersBiggerOrEqual++;
+            }
+            if (currentNumber >= otherNumber) {
+                amountNumbersSmallerOrEqual++;
             }
         }
-        *(numbers + minNumberIdx) = INT_MAX;
-        *(sortedNumbers + i) = minNumber;
+        if (amountNumbersBiggerOrEqual >= (size / 2) && 
+            amountNumbersSmallerOrEqual >= (size / 2) && 
+            currentNumber < possibleMedian) {
+            possibleMedian = currentNumber;
+        }
     }
-    return *(sortedNumbers + (size / 2));
+    return possibleMedian;
 }
 int* CreateRange(int start, int end, int jump, int* sizeRage)
 {
