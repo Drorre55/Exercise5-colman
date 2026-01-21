@@ -94,5 +94,29 @@ int* CreateRange(int start, int end, int jump, int* sizeRange)
 }
 char* PairArrays(char a[], char b[])
 {
-	return NULL;
+    int aLen = strlen(a);
+    int bLen = strlen(b);
+
+    char* pairedArray = malloc((aLen + bLen + 1) * sizeof *pairedArray);
+    if (pairedArray == NULL) {
+        printf("error in malloc\n");
+        return NULL;
+    }
+
+    int maxStrLen = aLen >= bLen ? aLen : bLen;
+
+    int currentIdx = 0;
+    for (int i = 0; i < maxStrLen; i++) {
+        if (i < aLen) {
+            *(pairedArray + currentIdx) = *(a + i);
+            currentIdx++;
+        }
+        if (i < bLen) {
+            *(pairedArray + currentIdx) = *(b + i);
+            currentIdx++;
+        }
+    }
+    *(pairedArray + currentIdx) = '\0';
+
+	return pairedArray;
 }
