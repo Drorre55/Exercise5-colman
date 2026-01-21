@@ -1,6 +1,7 @@
 #include "Utils.h"
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 void ToString(char* str, int number)
@@ -33,7 +34,24 @@ void Mystrcat(char* s, char* t)
 }
 int SumStr(char* str)
 {
-	return 0;
+    int length = strlen(str);
+    int previousNeighborNumber = 0;
+    int sum = 0;
+    for (int i = 0; i <= length; i++) {
+        char currentChar = *(str + i);
+        int currentDigit = currentChar - '0';
+
+        if (currentDigit >= 0 && currentDigit <= 9) {
+            previousNeighborNumber = (previousNeighborNumber * 10) + currentDigit;
+        }
+        else {
+            sum += previousNeighborNumber;
+            previousNeighborNumber = 0;
+        }
+        
+
+    }
+	return sum;
 }
 int Median(int* numbers, int size)
 {
