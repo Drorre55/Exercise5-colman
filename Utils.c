@@ -18,6 +18,7 @@ void ToString(char* str, int number)
         number %= (int)(pow(10, i) + 0.1);
         currentDigitIdx++;
     }
+    *(str + currentDigitIdx) = '\0';
 }
 void Mystrcat(char* s, char* t)
 {

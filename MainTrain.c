@@ -91,14 +91,10 @@ int main(){
 
 	char s[MAX_SIZE] = { 0 };
 	Test1(s, 111, "111");
-	char s11[MAX_SIZE] = { 0 }; 
-	Test1(s11, 59755, "59755");
-	char s22[MAX_SIZE] = { 0 }; 
-	Test1(s22, 001, "1");
-	char s33[MAX_SIZE] = { 0 }; 
-	Test1(s33, 100, "100");
-	char s44[MAX_SIZE] = { 0 }; 
-	Test1(s44, 1234, "1234");
+	Test1(s, 59755, "59755");
+	Test1(s, 001, "1");
+	Test1(s, 100, "100");
+	Test1(s, 1234, "1234");
 	// 15 Points
 
 	char s1[] = "abc    ";
