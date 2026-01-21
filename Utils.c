@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
-
+#define INT_MAX 2147483647
 
 void ToString(char* str, int number)
 {
